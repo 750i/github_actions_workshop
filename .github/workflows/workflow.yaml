@@ -1,19 +1,19 @@
 name: Check compilation
 on:
-	push:
-		branches:
-		- master
+  push:
+    branches:
+    - master
 jobs:
-	compilation:
-		runs-on: ubuntu-latest
-		container: epitechcontent/epitest-docker:devel
-		steps:
-		#Checkout code
-			- name: Checkout code
-			uses: actions/checkout@v2
-		#Run
-			- name: Build
-			run: make
-		#Compil ?
-			- name: Check if binary exists 
-			run: ls my_hello 
+  compilation:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker:devel
+    steps:
+    #Checkout code
+      - name: Checkout code
+      uses: actions/checkout@v2
+    #Run
+      - name: Build
+      run: make
+    #Compil ?
+      - name: Check if binary exists
+      run: ls my_hello
