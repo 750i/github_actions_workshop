@@ -1,8 +1,19 @@
 name: Check compilation
-on: push
+on:
+	push:
+		branches:
+		- master
 jobs:
-	my_first_job:
+	compilation:
 		runs-on: ubuntu-latest
-		name: compilation
-		container:
-			image: epitechcontent/epitest-docker:devel
+		container: epitechcontent/epitest-docker:devel
+		steps:
+		#Checkout code
+			- name: Checkout code
+			uses: actions/checkout@v2
+		#Run
+			- name: Build
+			run: make
+		#Compil ?
+			- name: Check if binary exists 
+			run: ls my_hello 
